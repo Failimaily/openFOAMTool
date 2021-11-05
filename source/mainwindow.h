@@ -12,9 +12,6 @@
 #include <QFileSystemModel>
 #include <QFileDialog>
 #include <QDateTime>
-#include <QtCharts>
-#include <QChartView>
-#include <QLineSeries>
 #include <QKeyEvent>
 #include <QRandomGenerator>
 #include "helpWindow/helpwindow.h"
