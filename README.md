@@ -23,3 +23,9 @@ You also need to add the following to your ~/.bashrc
 ```bash
 export MESA_GL_VERSION_OVERRIDE=3.3
 ```
+### Running
+To run the software you simply need to write the following into the terminal inside your "/build" directory.
+
+```bash
+./openfoamtool
+```
