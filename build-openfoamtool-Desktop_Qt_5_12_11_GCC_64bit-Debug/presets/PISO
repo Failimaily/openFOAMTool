@@ -1,5 +1,0 @@
-PISO
-{
-    nCorrectors     2;
-    nNonOrthogonalCorrectors 0;
-}
