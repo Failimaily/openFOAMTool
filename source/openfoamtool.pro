@@ -54,13 +54,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 
 
-#unix:!macx: LIBS += -lassimp
+unix:!macx: LIBS += -lassimp
 
 
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/libassimp/bin/release/ -lassimp
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/libassimp/bin/debug/ -lassimp
-else:unix: LIBS += -L$$PWD/libassimp/bin/ -lassimp
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/libassimp/bin/release/ -lassimp
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/libassimp/bin/debug/ -lassimp
+#else:unix: LIBS += -L$$PWD/libassimp/bin/ -lassimp
 
-INCLUDEPATH += $$PWD/libassimp/bin
-DEPENDPATH += $$PWD/libassimp/bin
+#INCLUDEPATH += $$PWD/libassimp/bin
+#DEPENDPATH += $$PWD/libassimp/bin
