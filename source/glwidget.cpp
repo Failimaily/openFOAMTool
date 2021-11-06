@@ -64,9 +64,9 @@ GLWidget::GLWidget(QWidget* parent,QString geometryPath):
     m_nbo(QOpenGLBuffer::VertexBuffer),
     m_ibo(QOpenGLBuffer::IndexBuffer)
 {
-    qDebug() << geometryName << "constructor";
-    geometryName= QString(geometryPath.toUtf8());
-    qDebug() <<geometryName << "constructor";
+    qDebug() << g_pprojectsettings->modelName << "constructor";
+     g_pprojectsettings->modelName = QString(geometryPath.toUtf8());
+    qDebug() << g_pprojectsettings->modelName << "constructor";
 }
 
 void GLWidget::createShaderProgram()
@@ -88,8 +88,8 @@ void GLWidget::createShaderProgram()
 void GLWidget::createGeometry()
 {
     //TODO Load Specified File from MainWindow
-    qDebug() << geometryName << "createGeometry";
-    if(!m_loader.Load(geometryName)) {
+qDebug() <<  g_pprojectsettings->modelName << "createGeometry";
+    if(!m_loader.Load( g_pprojectsettings->modelName)) {
         qDebug() << "ModelLoader failed to load model" << m_pgm.log();
         //exit(1);
     }
@@ -135,7 +135,7 @@ void GLWidget::createGeometry()
 
 void GLWidget::initializeGL()
 {
-    qDebug() << geometryName << " initializeGL";
+    qDebug() <<  g_pprojectsettings->modelName << " initializeGL";
     QOpenGLFunctions::initializeOpenGLFunctions();
     createShaderProgram(); m_pgm.bind();
 
@@ -212,7 +212,7 @@ void GLWidget::setRotationZ(int angle)
 void GLWidget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    qDebug()<<geometryName << "paintGL";
+    qDebug()<< g_pprojectsettings->modelName << "paintGL";
     if(m_vbo.isCreated())
     {
         m_pgm.bind();
@@ -239,9 +239,9 @@ void GLWidget::drawNode(const QMatrix4x4& model, const Node *node, QMatrix4x4 pa
                 const Mesh& m = *node->meshes[i];
                 qDebug() << m.indexOffset;
                 if (m.material->Name == QString("DefaultMaterial")) {
-                    m_pgm.setUniformValue("material.Ka",        QVector3D(  0.0f, 0.0f, 0.0f ));
-                    m_pgm.setUniformValue("material.Kd",        QVector3D(  0.0f,  0.0f, 0.0f  ));
-                    m_pgm.setUniformValue("material.Ks",        QVector3D(  0.0f,  0.0f, 0.0f  ));
+                    m_pgm.setUniformValue("material.Ka",        QVector3D(  0.05f, 0.2f, 0.05f ));
+                    m_pgm.setUniformValue("material.Kd",        QVector3D(  0.3f,  0.5f, 0.3f  ));
+                    m_pgm.setUniformValue("material.Ks",        QVector3D(  0.6f,  0.6f, 0.6f  ));
                     m_pgm.setUniformValue("material.shininess", 50.f);
                 } else {
                     m_pgm.setUniformValue("material.Ka",        m.material->Ambient);

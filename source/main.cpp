@@ -25,9 +25,11 @@
 
 #include "mainwindow.h"
 #include <QApplication>
-
+#include "projectsettings.h"
 int main(int argc, char *argv[])
 {
+    g_pprojectsettings->Init();
+    qDebug() << g_pprojectsettings->modelName;
     QApplication a(argc, argv);
     a.setAttribute(Qt::AA_UseDesktopOpenGL);
     QSurfaceFormat f;

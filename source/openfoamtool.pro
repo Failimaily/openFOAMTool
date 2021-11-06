@@ -18,9 +18,11 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     modelloader.cpp \
+    projectsettings.cpp \
     qCustomPlot/qcustomplot.cpp \
 
 HEADERS += \
+    Singleton.h \
     assimp/Importer.hpp \
     assimp/material.h \
     assimp/postprocess.h \
@@ -31,6 +33,7 @@ HEADERS += \
     logger.h \
     mainwindow.h \
     modelloader.h \
+    projectsettings.h \
     qCustomPlot/qcustomplot.h \
 
 FORMS += \

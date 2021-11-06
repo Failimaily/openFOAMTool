@@ -9,6 +9,7 @@
 #include <QtGui/QOpenGLShaderProgram>
 #include <QtGui/QOpenGLVertexArrayObject>
 #include <modelloader.h>
+#include "projectsettings.h"
 class GLWidget : public QGLWidget, QOpenGLFunctions
 {
 public:

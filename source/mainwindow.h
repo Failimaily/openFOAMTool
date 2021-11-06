@@ -19,7 +19,7 @@
 #include "qCustomPlot/qcustomplot.h"
 #include "cmath"
 #include "glwidget.h"
-
+#include "projectsettings.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

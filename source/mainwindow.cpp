@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    g_pprojectsettings->Del();
     QCoreApplication::quit();
     delete helpWindow;
     delete ui;
@@ -341,7 +342,7 @@ void MainWindow::on_ImportGeo_Button_clicked()
         {
             QFile::copy(path[0],projectPath.path()+"/constant"+"/triSurface"+"/"+path[0].split("/").last());
             ui->GL_Widget = new GLWidget(this,projectPath.path()+"/constant"+"/triSurface"+"/"+path[0].split("/").last());
-            ui->GL_Widget->initializeGL();
+            //ui->GL_Widget->initializeGL();
             qDebug() << projectPath.path()+"/constant"+"/triSurface"+"/"+path[0].split("/").last();
         }
         else
@@ -349,7 +350,7 @@ void MainWindow::on_ImportGeo_Button_clicked()
             QDir(projectPath.path()+"/constant"+"/triSurface").mkpath(".");
             QFile::copy(path[0],projectPath.path()+"/constant"+"/triSurface"+"/"+path[0].split("/").last());
             ui->GL_Widget = new GLWidget(this,projectPath.path()+"/constant"+"/triSurface"+"/"+path[0].split("/").last());
-            ui->GL_Widget->initializeGL();
+            //ui->GL_Widget->initializeGL();
             qDebug() << projectPath.path()+"/constant"+"/triSurface"+"/"+path[0].split("/").last();
         }
     }
